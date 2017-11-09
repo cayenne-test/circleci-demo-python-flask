@@ -38,12 +38,6 @@ jobs:
     # In many cases you can simplify this from what is generated here.
     # 'See docs on artifact collection here https://circleci.com/docs/2.0/artifacts/'
     - run: mkdir -p $CIRCLE_ARTIFACTS $CIRCLE_TEST_REPORTS
-    # The following line was run implicitly in your 1.0 builds based on what CircleCI inferred about the structure of your project. In 2.0 you need to be explicit about which commands should be run. In some cases you can discard inferred commands if they are not relevant to your project.
-    # You can remove this conditional and use only the true branch if your version of python is on this container and the false branch if it is not.
-    # If your project does not have any unusual requirements, a better solution would be to configure the build to use the appropriate python image.
-    - run:
-        working_directory: $HOME/foo/bar
-        command: if [ pyenv versions --bare | grep -x -q "" ]; then pyenv global ; else pyenv install --skip-existing   && pyenv global  && pyenv rehash && pip install virtualenv && pip install nose && pip install pep8 && pyenv rehash; fi
     # Dependencies
     #   This would typically go in either a build or a build-and-test job when using workflows
     # Restore the dependency cache
